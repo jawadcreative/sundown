@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-        <section className='fixed bottom-0 left-0 h-screen w-full -z-20 pt-14 pointer-events-auto flex flex-col justify-around bg-[#EFEAE3]'>
+        <section className='fixed bottom-0 left-0 h-screen w-full -z-20 pt-14 pointer-events-auto flex flex-col justify-around'>
             <div className="w-full flex sm:flex-row flex-col sm:justify-between sm:items-center items-start px-[5vw] pointer-events-auto">
                 <div className="flex flex-col">
                     {['Work', 'Studio', 'COntact'].map((item, index) => (
