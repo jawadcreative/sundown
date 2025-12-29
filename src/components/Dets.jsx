@@ -2,24 +2,35 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { SplitText } from 'gsap/all'
 import { useRef } from 'react'
-gsap.registerPlugin(SplitText)
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(SplitText, ScrollTrigger)
 
 const Dets = () => {
-  let h1Ref = useRef(null)
-  let detsRef = useRef(null)
+  const h1Ref = useRef(null)
+  const detsRef = useRef(null)
+  const paraRef = useRef(null)
   useGSAP(()=>{
     let h1Splt = new SplitText (h1Ref.current, {
       type: 'lines, words, chars',
       mask: 'lines'
     })
-    gsap.from(h1Splt.lines, {
-      y: 100,
-      stagger: 0.05,
+    let paraSplt = new SplitText (paraRef.current, {
+      type: 'lines, words, chars',
+      mask: 'lines'
+    })
+    let tl = gsap.timeline({
       scrollTrigger: {
         trigger: detsRef.current,
         start: 'top 20%',
-        markers: true
       },
+    })
+    tl.from(h1Splt.lines, {
+      y: 100,
+      stagger: 0.05,
+    })
+    tl.from(paraSplt.lines, {
+      y: 100,
+      stagger: 0.05,
     })
     gsap.to('.detsGoyee', {
       skewX: 10,
@@ -39,7 +50,7 @@ const Dets = () => {
         </div>
         <div className="flex flex-col sm:w-[35%] justify-end items-end pb-16 gap-y-4">
           <img className='h-[30vh] sm:w-[70%] w-full rounded-xl object-cover object-center' src="/img/dets.webp" alt="dets" />
-          <p className='font-regular sm:w-[70%] mt-[2vw] font-extrabold leading-none'>We love to create, we love to solve, we love to collaborate, and we love to turn amazing ideas into reality. We’re here to partner with you through every step of the process and know that relationships are the most important things we build.</p>
+          <p ref={paraRef} className='font-regular sm:w-[70%] mt-[2vw] font-extrabold leading-none'>We love to create, we love to solve, we love to collaborate, and we love to turn amazing ideas into reality. We’re here to partner with you through every step of the process and know that relationships are the most important things we build.</p>
         </div>
       </div>
     </section>

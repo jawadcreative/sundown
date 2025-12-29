@@ -52,10 +52,9 @@ const Hero = () => {
         <div className="absolute -top-10 left-52 rounded-full box1 h-50 w-50 bg-[#FE390E]"></div>
       </div>
 
-      <div className="absolute z-20 h-full w-full px-[2vw] pt-[3vw] flex flex-col justify-between">
+      <div className="absolute z-20 h-full w-full px-[2vw] pt-[3vw] flex items-end border-b">
         <Navbar />
-
-        <div className="sm:h-[65vh] h-[40vh] w-full border-b flex sm:flex-row flex-col-reverse items-center sm:justify-between justify-center">
+        <div className="sm:h-[65vh] h-[40vh] w-full flex sm:flex-row flex-col-reverse items-center sm:justify-between justify-around">
           <p
             ref={paraRef}
             className="font-gilroy sm:text-[2.5vw] sm:w-[40%] w-[80%] leading-none"
@@ -64,7 +63,7 @@ const Hero = () => {
             end-to-end experiences and environments.
           </p>
 
-          <div ref={headRef} className="flex flex-col items-end">
+          <div ref={headRef} className="flex flex-col items-end max-sm:w-full">
             {["SPACES", "THAT", "INSPIRE"].map((item, i) => (
               <h1
                 key={i}
