@@ -1,9 +1,26 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
-import React from 'react'
+import { SplitText } from 'gsap/all'
+import { useRef } from 'react'
+gsap.registerPlugin(SplitText)
 
 const Dets = () => {
+  let h1Ref = useRef(null)
+  let detsRef = useRef(null)
   useGSAP(()=>{
+    let h1Splt = new SplitText (h1Ref.current, {
+      type: 'lines, words, chars',
+      mask: 'lines'
+    })
+    gsap.from(h1Splt.lines, {
+      y: 100,
+      stagger: 0.05,
+      scrollTrigger: {
+        trigger: detsRef.current,
+        start: 'top 20%',
+        markers: true
+      },
+    })
     gsap.to('.detsGoyee', {
       skewX: 10,
       repeat: -1,
@@ -12,13 +29,13 @@ const Dets = () => {
       duration: 2,
       top: '30%',
     })
-  })
+  }, {scope: '.dets'})
   return (
-    <section className='sm:h-screen h-[64vh] w-full relative'>
+    <section ref={detsRef} className='dets sm:h-screen h-[64vh] w-full relative'>
       <div className="absolute z-10 detsGoyee left-[26%] top-[35%] h-[40vw] w-[40vw] bg-[#FE390E] rounded-full blur-3xl"></div>
       <div className="absolute z-20 px-[6vw] h-full w-full flex sm:flex-row flex-col gap-y-7">
         <div className="sm:h-full flex items-center sm:w-[65%] w-full">
-          <h1 className='text-[4vw] font-gilroy leading-none'>We are a group of design-driven, goal-focused creators, producers, and designers who believe that the details make all the difference.</h1>
+          <h1 ref={h1Ref} className='text-[4vw] font-gilroy leading-none'>We are a group of design-driven, goal-focused creators, producers, and designers who believe that the details make all the difference.</h1>
         </div>
         <div className="flex flex-col sm:w-[35%] justify-end items-end pb-16 gap-y-4">
           <img className='h-[30vh] sm:w-[70%] w-full rounded-xl object-cover object-center' src="/img/dets.webp" alt="dets" />
