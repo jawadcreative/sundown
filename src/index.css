@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  --color: rgba(255, 255, 255, 0.87);
+  --background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color: #000000;
+    --background-color: #EFEAE3;
+  }
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("/fonts/Gilroy-Bold.ttf");
+}
+@font-face {
+  font-family: "Regular";
+  src: url("/fonts/Gilroy-Regular.ttf");
+}
+
+@theme {
+    --font-gilroy: 'Gilroy';
+    --font-regular: 'Regular';
+}
+
+.nav ul li {
+  border: 1px solid var(--color);
+  padding: 10px 20px;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav ul li::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 50%;
+  background: var(--color);
+  top: 100%;
+  left: 0;
+  transition: all;
+  transition-duration: .5s;
+  /* z-index: inherit; */
+}
+
+.nav ul li:hover{
+  color: var(--background-color);
+
+}
+
+.nav ul li:hover::before {
+  border-radius: 20px;
+  z-index: -1;
+  top: 0%;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
