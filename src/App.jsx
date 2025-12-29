@@ -23,7 +23,7 @@ const App = () => {
   })
   return (
     <main className='h-full w-full relative overflow-hidden'>
-      <div className="bg-[#EFEAE3]">
+      <div className="bg-[#EFEAE3] dark:bg-black">
       <Hero />
       <About/>
       <Goyee/>
