@@ -57,10 +57,8 @@ const Hero = () => {
         <div className="sm:h-[65vh] h-[40vh] w-full flex sm:flex-row flex-col-reverse items-center sm:justify-between justify-around">
           <p
             ref={paraRef}
-            className="font-gilroy sm:text-[2.5vw] sm:w-[40%] w-[80%] leading-none"
-          >
-            Sundown is a multi-disciplinary studio focused on creating unique,
-            end-to-end experiences and environments.
+            className="font-gilroy sm:text-[2.5vw] sm:w-[40%] w-full leading-none">
+            Sundown is a multi-disciplinary studio focused on creating unique, end-to-end experiences and environments.
           </p>
 
           <div ref={headRef} className="flex flex-col items-end max-sm:w-full">

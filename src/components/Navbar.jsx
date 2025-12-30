@@ -6,7 +6,6 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const menuRef = useRef(null);
 
-  // animate when "open" updates
   useEffect(() => {
     gsap.to(menuRef.current, {
       height: open ? "88vh" : 0,
@@ -18,8 +17,6 @@ const Navbar = () => {
   return (
     <nav className="absolute top-0 left-0 w-full z-50">
       <div className="h-28 w-full flex items-center justify-between px-6">
-
-        {/* Logo */}
         <a href="/">
           <img
             className="dark:invert"
@@ -28,7 +25,6 @@ const Navbar = () => {
           />
         </a>
 
-        {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-x-6">
           {["Work", "Studio", "Contact"].map((item, i) => (
             <li key={i} className="font-gilroy font-extrabold">
@@ -37,7 +33,6 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Menu Button */}
         <button
           onClick={() => setOpen(!open)}
           className="px-8 py-2 rounded-full border border-black dark:border-white font-extrabold cursor-pointer font-gilroy md:hidden"
@@ -46,14 +41,12 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu Panel */}
       <div
         ref={menuRef}
         className="menu h-0 overflow-hidden bg-black text-white dark:bg-white dark:text-black px-8 md:hidden"
       >
         <div className="py-10 flex flex-col gap-6">
 
-          {/* Big Links */}
           <ul className="text-4xl font-gilroy font-extrabold space-y-3">
             {["Work", "Studio", "Contact"].map((item, i) => (
               <li key={i}>
@@ -62,7 +55,6 @@ const Navbar = () => {
             ))}
           </ul>
 
-          {/* Info Section */}
           <div className="mt-8 text-sm opacity-80 space-y-1">
             {['Portfolio', 'UI/UX', 'Development', 'Motion'].map((service, i) => (
               <span key={i} className="block font-regular font-extrabold">{service}</span>
