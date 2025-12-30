@@ -5,9 +5,11 @@ const Navbar = () => {
 
   const [open, setOpen] = useState(false);
   const menuRef = useRef(null);
+  const ulRef = useRef(null)
 
   useEffect(() => {
-    gsap.to(menuRef.current, {
+    let tl = gsap.timeline()
+    tl.to(menuRef.current, {
       height: open ? "88vh" : 0,
       duration: 0.6,
       ease: "power3.inOut",
@@ -15,7 +17,7 @@ const Navbar = () => {
   }, [open]);
 
   return (
-    <nav className="absolute top-0 left-0 w-full z-50">
+    <nav className="absolute top-0 left-0 w-full z-50 bg-[#EFEAE3] text-black dark:bg-black dark:text-[#EFEAE3]">
       <div className="h-28 w-full flex items-center justify-between px-6">
         <a href="/">
           <img
@@ -43,11 +45,11 @@ const Navbar = () => {
 
       <div
         ref={menuRef}
-        className="menu h-0 overflow-hidden bg-black text-white dark:bg-white dark:text-black px-8 md:hidden"
+        className="menu h-0 overflow-hidden px-8 md:hidden"
       >
         <div className="py-10 flex flex-col gap-6">
 
-          <ul className="text-4xl font-gilroy font-extrabold space-y-3">
+          <ul ref={ulRef} className="text-4xl font-gilroy font-extrabold space-y-3">
             {["Work", "Studio", "Contact"].map((item, i) => (
               <li key={i}>
                 <a href={`/${item.toLowerCase()}`}>{item}</a>

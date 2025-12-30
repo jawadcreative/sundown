@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <section className='fixed bottom-0 left-0 h-screen w-full -z-20 pt-14 pointer-events-auto overflow-hidden'>
             <div className="absolute h-screen w-full">
-                <div className="bGoyee h-[60vh] w-[30%] bg-[#FE390E] absolute bottom-0 left-1/2 -translate-1/2 origin-bottom-right rounded-full blur-3xl"></div>
+                <div className="bGoyee h-96 w-96 bg-[#FE390E] absolute bottom-0 left-1/2 -translate-1/2 origin-bottom-right rounded-full blur-3xl"></div>
             </div>
             <div className="h-full w-full flex flex-col justify-around absolute z-20">
                 <div className="w-full flex sm:flex-row flex-col sm:justify-between sm:items-center items-start px-[5vw] pointer-events-auto">
@@ -23,7 +23,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="w-full flex flex-col items-center">
-                    <h1 className="text-[23vw] font-gilroy leading-none">Sundown</h1>
+                    <h1 className="text-[23vw] font-gilroy leading-none mix-blend-difference">Sundown</h1>
                     <div className="flex w-full justify-between border-t border-gray-300 px-[2vw]">
                         {['Copyright © 2024 Sundown Studio', 'Brooklyn, NY', 'Instagram', 'Linkedin'].map((item, index) => (
                             <p key={index} className='font-regular text-[14px] font-extrabold'>{item}</p>
