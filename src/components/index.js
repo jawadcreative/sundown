@@ -9,5 +9,6 @@ import PageTop from "./PageTop";
 import Scroller from "./Scroller";
 import Footer from "./Footer";
 import FooterCover from "./FooterCover";
+import Loader from "./Loader";
 
-export {Hero, Navbar, About, Goyee, Dets, Design, Projects, PageTop, Scroller, Footer, FooterCover};
+export {Hero, Navbar, About, Goyee, Dets, Design, Projects, PageTop, Scroller, Footer, FooterCover, Loader};
